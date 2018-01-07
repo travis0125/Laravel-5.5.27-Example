@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Input;
+use App\Http\Requests\CreateTeacherRequest;
 use App\Teacher;
 
 class TeachersController extends Controller
@@ -21,7 +22,7 @@ class TeachersController extends Controller
         return view('teachers.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateTeacherRequest $request)
     {
         /*
         $teacher_new = new Teacher;
@@ -55,7 +56,7 @@ class TeachersController extends Controller
         return view('teachers.edit', compact('id', 'teacher'));
     }
 
-    public function update($id,Request $request)
+    public function update($id,CreateTeacherRequest $request)
     {
         $teacher = Teacher::findOrFail($id);
         $teacher->update($request->all());
